@@ -1,0 +1,61 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv= "x-ua-compatible content= IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body> 
+        <div class = "container">
+            <div class="menu">
+            <div class = "logo">
+                    <img src="/images/logo.png" width="50px">
+                    <br>
+                    <br>
+                    <br>
+            </div>
+            <div>
+            <h1 class="title-3"> Payment</h1>
+            </div>
+                <nav>
+                    <ul>
+                       <li><a href="/index.html">Home</a></li>
+                       <li><a href="/product.html">Products</a></li>
+                       <li><a href="/checkout.html">Check Out</a></li>
+                       <li><a href="/Contact Us.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+
+    
+        <div class="till"><img src="/images/Till.png" width="500px">
+            <div class="code">
+                <form name="mpesa" action="/url" method="GET" font-size="40" onsubmit="return validateform()" id="mpesa-form">
+                <br>
+                <p>Enter M-PESA code:</p>
+                <br>
+                <input type="text" name="mpesa" maxlength="10" required minlength="10"> 
+                <br>
+                <br>
+                <button type="submit">confirm</button>
+            </form>
+            <script>
+                let mpesaForm = document.querySelector("#mpesa-form")
+                mpesaForm.onsubmit = (e) =>{
+                    e.preventDefault()
+                    location.href="payment_succesful.html"
+                }
+            </script>
+            
+            </div>
+        </div>
+    </form>
+    </body>
+
+
+
+    </html>

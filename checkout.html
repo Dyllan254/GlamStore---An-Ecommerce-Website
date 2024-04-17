@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv= "x-ua-compatible content= IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check Out</title>
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+
+    <body> 
+        <div class = "container">
+            <div class="menu">
+            <div class = "logo">
+                    <img src="/images/logo.png" width="50px">
+                    
+            </div>
+            <h1 class="title-2">Check Out</h1>
+            <img src="/images/checkout.png" width="150px" >
+           
+                <nav>
+                    <ul>
+                       <li><a href="/index.html">Home</a></li>
+                       <li><a href="/product.html">Products</a></li>
+                       <li><a href="/checkout.html">Check Out</a></li>
+                       <li><a href="/Contact Us.html">Contact Us</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="check">
+            <div class="select">
+            <form action="#" id="checkout-form">
+                <label for="bags">Bags</label>
+                <select name="bags" id="bags" required>
+                <option selected disabled value="">Select Option</option>
+                <option value="Backpack" price="4999">Backpack</option>
+                <option value="Duffle Bag" price="6999">Duffle Bag</option>
+                <option value="Pouch" price="1999">Pouch</option>
+                <option value="Shoulder Bag" price="3599">Shoulder Bag</option>
+                <option value="Wallet" price="899">Wallet</option>
+
+                <br>
+
+                </select>
+                
+                <label for="Quantity">Quantity</label>
+                <select name="Quantity" id="Quantity" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option> 
+                </select>
+
+                
+                <label for="Pickup Station">Pickup Station</label>
+                <select name="pickup station" id="pickup" required>
+                <option value="">Select</option>
+                <option value="Nairobi OTC">Nairobi OTC</option>
+                <option value="Mombasa-Nyali Center">Mombasa - Nyali Center</option>
+                <option value="Eldoret-Eldo Center Mall">Eldoret-Eldo Center Mall</option>
+                <option value="Kakamega-Mega Mall">Kakamega-Mega Mall</option>
+                <option value="Nakuru-Westside Mall">Nakuru-Westside Mall</option> 
+                </select>
+
+
+                <input type="submit" value="Submit">
+
+            </form>
+
+            <p id="display"></p>
+            <button id="paymentBtn" type="button" hidden>PAY</button>
+            <script>
+                let bags = document.querySelector("#bags")
+                let quantity =  document.querySelector("#Quantity")
+                let pickup = document.querySelector("#pickup")
+                let display =  document.querySelector("#display")
+
+                
+
+                let form = document.querySelector("#checkout-form")
+                form.onsubmit=(e)=>{
+                    e.preventDefault()
+
+                    let bagPrice = bags.options[bags.selectedIndex].getAttribute("price")
+                    let bag = bags.options[bags.selectedIndex].value
+
+                    let station  =  pickup.options[pickup.selectedIndex].value
+
+                    let paymentBtn = document.querySelector("#paymentBtn")
+
+                    let amount = quantity.options[quantity.selectedIndex].value;
+                    
+                    form.style.display = "none";
+                    paymentBtn.style.display="block"
+                    
+                    display.innerHTML=`
+                        You have selected  ${bag} of quantity ${amount} \n
+                        . Total Price is KES ${bagPrice * amount} . To be picked  up at  ${station}
+                    `
+
+                    
+                }
+
+                paymentBtn.onclick = () =>{
+                location.href="/payment.html"
+
+                }
+
+            </script>
+             <br>
+            </div>
+          
+            </div>
+        
+    </body>
+
+
+
+</html>
